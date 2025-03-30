@@ -1,15 +1,14 @@
-# Exact diagonalization of SU(4) Heisengerg model
+# Exact diagonalization of SU(4) 1-D Heisengerg model
 
 using LinearAlgebra
 using SparseArrays
 using KrylovKit
 
-L   = 4
-dim = 6
+L   = 4  ## Number of sites
+dim = 6  ## Dimension of the local Hilbert space
 global jobID = round(Int,time()*1e4)
 
-## Define all the generators
-
+## Define all the generators  Check these generators by your self
 H1 = sparse([0 0 0 0 0 0;
              0 1/2 0 0 0 0; 
              0 0 1/2 0 0 0;
@@ -85,6 +84,8 @@ Em6 = Ep6'
 
 
 # Define the Hamiltonian
+
+## The coupling for all the terms
 J1 = 1.0;
 J2 = 1.0;
 J3 = 1.0;
@@ -95,6 +96,8 @@ J7 = 1.0;
 J8 = 1.0;
 J9 = 1.0;
 
+
+## The coupling terms
 Coupling = J1*kron(H1, H1)+J2*kron(H2, H2)+J3*kron(H3, H3)+
            0.5*J4*kron(Ep1, Em1)+0.5*J5*kron(Ep2, Em2)+0.5*J6*kron(Ep3, Em3)+
            0.5*J7*kron(Ep4, Em4)+0.5*J8*kron(Ep5, Em5)+0.5*J9*kron(Ep6, Em6)+
@@ -118,7 +121,7 @@ let
         (vals, vecs, res) = eigsolve(Abstract_Array, dimension, n_lowest, which, tol = 1e-6)
     end
     # Save the eigenvalues to a text file
-    open("result.txt", "a") do file
+    open(joinpath(pwd(),"result.txt"), "a") do file
         println(file, "\n\n=======================")
         println(file, "Exact Diagonalization of SU(4) Heisengerg model")
         println(file, "=======================")
