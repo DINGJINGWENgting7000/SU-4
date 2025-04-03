@@ -1,7 +1,7 @@
 using ITensors, ITensorMPS
 
 global Dim_site = 6  ## Define the dimension of Hilbert space in a site.
-global N = 4  ## Define the number of sites in the chain
+global N = 7  ## Define the number of sites in the chain
 
 function ITensors.space(::SiteType"IdxSO6")
     return Dim_site
@@ -163,5 +163,4 @@ setmaxdim!(sweeps, 10, 20, 50)
 setcutoff!(sweeps, 1E-10)
 energy, psi = dmrg(H, psi0, sweeps)
 println("基态能量: ", energy)
-
 
