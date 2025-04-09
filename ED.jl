@@ -4,7 +4,7 @@ using LinearAlgebra
 using SparseArrays
 using KrylovKit
 
-L   = 4  ## Number of sites
+L   = 7  ## Number of sites
 dim = 6  ## Dimension of the local Hilbert space
 global jobID = round(Int,time()*1e4)
 
@@ -146,3 +146,4 @@ let
     
     #@show vals
 end
+

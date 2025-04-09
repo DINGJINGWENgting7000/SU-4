@@ -159,3 +159,194 @@ Eigenvalues:
 
 times taken to diagonalize the Hamiltonian: 0.0651396
  =============DONE=============
+
+
+=======================
+Exact Diagonalization of SU(4) Heisengerg model
+=======================
+jobID: 17435990739270
+
+Hamiltonian Information:
+
+The Hamiltonian is Hermitian
+Number of sites: 4
+Dimension of the Hamiltonian: 1296
+Number of lowest eigenvalues computed: 5
+
+Eigenvalues:
+-7.1487071463612395 + 0.0im
+-6.005370317105551 + 0.0im
+-5.664868225663239 + 0.0im
+-5.572466996025463 + 0.0im
+-5.534849322489263 + 0.0im
+
+times taken to diagonalize the Hamiltonian: 5.5503888
+ =============DONE=============
+
+
+=======================
+Exact Diagonalization of SU(4) Heisengerg model
+=======================
+jobID: 17435993687480
+
+Hamiltonian Information:
+
+The Hamiltonian is Hermitian
+Number of sites: 4
+Dimension of the Hamiltonian: 1296
+Number of lowest eigenvalues computed: 5
+
+Eigenvalues:
+-7.148707146361225 + 0.0im
+-6.005370317105538 + 0.0im
+-5.664868225663274 + 0.0im
+-5.57246699602547 + 0.0im
+-5.534849322489236 + 0.0im
+
+times taken to diagonalize the Hamiltonian: 0.0691844
+ =============DONE=============
+
+
+=======================
+Exact Diagonalization of SU(4) Heisengerg model
+=======================
+jobID: 17435993764140
+
+Hamiltonian Information:
+
+The Hamiltonian is Hermitian
+Number of sites: 4
+Dimension of the Hamiltonian: 1296
+Number of lowest eigenvalues computed: 5
+
+Eigenvalues:
+-7.148707146361216 + 0.0im
+-6.005370317105541 + 0.0im
+-5.6648682256632705 + 0.0im
+-5.572466996025487 + 0.0im
+-5.534849322489259 + 0.0im
+
+times taken to diagonalize the Hamiltonian: 0.0685946
+ =============DONE=============
+
+
+=======================
+Exact Diagonalization of SU(4) Heisengerg model
+=======================
+jobID: 17436003085420
+
+Hamiltonian Information:
+
+The Hamiltonian is Hermitian
+Number of sites: 4
+Dimension of the Hamiltonian: 1296
+Number of lowest eigenvalues computed: 5
+
+Eigenvalues:
+-7.148707146361151 + 0.0im
+-6.0053703171055375 + 0.0im
+-5.664868225663286 + 0.0im
+-5.572466996025488 + 0.0im
+-5.5348493224892605 + 0.0im
+
+times taken to diagonalize the Hamiltonian: 0.0688344
+ =============DONE=============
+
+
+=======================
+Exact Diagonalization of SU(4) Heisengerg model
+=======================
+jobID: 17436003232490
+
+Hamiltonian Information:
+
+The Hamiltonian is Hermitian
+Number of sites: 4
+Dimension of the Hamiltonian: 1296
+Number of lowest eigenvalues computed: 5
+
+Eigenvalues:
+-7.148707146361226 + 0.0im
+-6.005370317105502 + 0.0im
+-5.664868225663257 + 0.0im
+-5.572466996025481 + 0.0im
+-5.534849322489278 + 0.0im
+
+times taken to diagonalize the Hamiltonian: 0.0751429
+ =============DONE=============
+
+
+=======================
+Exact Diagonalization of SU(4) Heisengerg model
+=======================
+jobID: 17436044221100
+
+Hamiltonian Information:
+
+The Hamiltonian is Hermitian
+Number of sites: 5
+Dimension of the Hamiltonian: 7776
+Number of lowest eigenvalues computed: 5
+
+Eigenvalues:
+-8.366692254021064 + 0.0im
+-8.366692254021043 + 0.0im
+-8.30102029394867 + 0.0im
+-8.301020293948579 + 0.0im
+-7.449805125983726 + 0.0im
+-7.406808939456301 + 0.0im
+-6.827919649401425 + 0.0im
+-6.745898304696108 + 0.0im
+
+times taken to diagonalize the Hamiltonian: 0.3329355
+ =============DONE=============
+
+
+=======================
+Exact Diagonalization of SU(4) Heisengerg model
+=======================
+jobID: 17436045399220
+
+Hamiltonian Information:
+
+The Hamiltonian is Hermitian
+Number of sites: 6
+Dimension of the Hamiltonian: 46656
+Number of lowest eigenvalues computed: 5
+
+Eigenvalues:
+-10.948750305790648 + 0.0im
+-10.188551835538895 + 0.0im
+-9.750639374707525 + 0.0im
+-9.637587606872062 + 0.0im
+-9.632659254956037 + 0.0im
+-9.457524541230338 + 0.0im
+
+times taken to diagonalize the Hamiltonian: 0.2425569
+ =============DONE=============
+
+
+=======================
+Exact Diagonalization of SU(4) Heisengerg model
+=======================
+jobID: 17436046021330
+
+Hamiltonian Information:
+
+The Hamiltonian is Hermitian
+Number of sites: 7
+Dimension of the Hamiltonian: 279936
+Number of lowest eigenvalues computed: 5
+
+Eigenvalues:
+-12.331570282468878 + 0.0im
+-12.331570282468853 + 0.0im
+-12.246244490430486 + 0.0im
+-12.246244490430355 + 0.0im
+-11.584065115636125 + 0.0im
+-11.5594120099882 + 0.0im
+-10.994825603712739 + 0.0im
+-10.930824278821001 + 0.0im
+
+times taken to diagonalize the Hamiltonian: 1.9710346
+ =============DONE=============
