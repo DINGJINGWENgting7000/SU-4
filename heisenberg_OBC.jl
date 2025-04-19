@@ -22,9 +22,9 @@ end
 
 function my_entanglement_entropy(psi::MPS, bond::Int)
     N = length(psi)
-    @assert 1 <= bond < N "bond 必须在 1 到 $(N-1) 之间"
+    @assert 1 <= bond < N "Bond index out of range"
 
-    # 复制并正交化
+  
     psi_copy = copy(psi)
     orthogonalize!(psi_copy, bond)
 
@@ -35,11 +35,11 @@ function my_entanglement_entropy(psi::MPS, bond::Int)
     
     U, S, V = svd(A, (site_index, right_link))
 
-    # 获取奇异值并归一化（S 是对角张量）
+ 
     singular_values = diag(S)
     singular_values ./= norm(singular_values)
 
-    # 计算纠缠熵：使用 log2
+
     entropy = -sum(s -> s^2 * log2(s^2), singular_values)
 
     return isnan(entropy) ? 0.0 : entropy

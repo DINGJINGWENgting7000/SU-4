@@ -350,3 +350,55 @@ Eigenvalues:
 
 times taken to diagonalize the Hamiltonian: 1.9710346
  =============DONE=============
+
+
+=======================
+Exact Diagonalization of SU(4) Heisengerg model
+=======================
+jobID: 17447164089250
+
+Hamiltonian Information:
+
+The Hamiltonian is Hermitian
+Number of sites: 7
+Dimension of the Hamiltonian: 279936
+Number of lowest eigenvalues computed: 5
+
+Eigenvalues:
+-12.331570282468972 + 0.0im
+-12.33157028246894 + 0.0im
+-12.246244490430518 + 0.0im
+-12.246244490430346 + 0.0im
+-11.584065115636243 + 0.0im
+-11.559412009988275 + 0.0im
+-10.994825603712819 + 0.0im
+-10.930824278821035 + 0.0im
+
+times taken to diagonalize the Hamiltonian: 7.0002719
+ =============DONE=============
+
+
+=======================
+Exact Diagonalization of SU(4) Heisengerg model
+=======================
+jobID: 17450543427380
+
+Hamiltonian Information:
+
+The Hamiltonian is Hermitian
+Number of sites: 7
+Dimension of the Hamiltonian: 279936
+Number of lowest eigenvalues computed: 5
+
+Eigenvalues:
+-12.331570282469059 + 0.0im
+-12.331570282468817 + 0.0im
+-12.246244490430461 + 0.0im
+-12.246244490430357 + 0.0im
+-11.584065115636148 + 0.0im
+-11.559412009988101 + 0.0im
+-10.994825603712718 + 0.0im
+-10.930824278820852 + 0.0im
+
+times taken to diagonalize the Hamiltonian: 1.8235038
+ =============DONE=============

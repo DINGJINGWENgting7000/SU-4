@@ -1,15 +1,19 @@
 using ITensors, ITensorMPS
-
-
-const Dim_site = 6  # Dimension of each site
-const L = 4         # Number of ladder sites
+using LinearAlgebra
+const Dim_site = 6  # Hilbert Dimension of each site
+const N = 4         # Number of rungs
 const deltaU = 0.5  # Interaction parameter
-const J = 1.0       # Coupling constant
-# Create the sites for the ladder system
-sites = siteinds("IdxSU4_6d", 2L)
+const J = 1.0       # exchange energy parameter
 
 # Define the operator space for each site
-ITensors.space(::SiteType"IdxSU4_6d") = Dim_site
+function ITensors.space(::SiteType"IdxSU4_6d")
+  return Dim_site
+end
+function ITensors.siteind(::SiteType"IdxSU4_6d", i::Int; kwargs...)
+  return Index(Dim_site; tags="Site,IdxSU4_6d", kwargs...)
+end
+# Create the sites for the ladder system
+sites = siteinds("IdxSU4_6d", N)
 
 ## Define the corresponding Operator of other generators. There should be 15 in total.
 function ITensors.op(::OpName"Sd", ::SiteType"IdxSU4_6d", s::Index)
@@ -17,7 +21,7 @@ function ITensors.op(::OpName"Sd", ::SiteType"IdxSU4_6d", s::Index)
     Op[s'=>1, s=>1] = 2.0+0im
     Op[s'=>6, s=>6] = -2.0+0im
     return Op
-  end
+end
 function ITensors.op(::OpName"H1", ::SiteType"IdxSU4_6d", s::Index)
     Op = emptyITensor(ComplexF64, s, s')
     Op[s'=>2, s=>2] = 1/2.0+0im
@@ -133,82 +137,100 @@ function ITensors.op(::OpName"H1", ::SiteType"IdxSU4_6d", s::Index)
     return Op
   end
 
-  function build_full_hamiltonian(sites, deltaU)
-    ampo = AutoMPO()
+#Dict communication for SU(4) generators
+function generate_su4_generators(s::Index)
+    stype = SiteType("IdxSU4_6d")
+    gens = Dict{String, ITensor}()
 
-
-    for i in 1:2:(2L-2)
-        for j in 1:6
-            add!(ampo, 0.5, "Ep$j", i, "Em$j", i+2)
-            add!(ampo, 0.5, "Em$j", i, "Ep$j", i+2)
-        end
+    # Cartan generators
+    for name in ["H1", "H2", "H3"]
+        gens[name] = op(name, stype, s)
     end
 
-    for i in 1:L
-        si = 2*i - 1  
-        sj = 2*i      
-        for j in 1:6
-            add!(ampo, 0.5, "Ep$j", si, "Em$j", sj)
-            add!(ampo, 0.5, "Em$j", si, "Ep$j", sj)
-        end
+    # Raising operators
+    for i in 1:6
+        name = "Ep$(i)"
+        gens[name] = op(name, stype, s)
     end
 
-    #
-    for i in 1:L
-        add!(ampo, deltaU, "Sd", i, "Sd", i)
+    # Lowering operators
+    for i in 1:6
+        name = "Em$(i)"
+        gens[name] = op(name, stype, s)
     end
 
-    return MPO(ampo, sites)
+    # Optional
+    gens["Sd"] = op("Sd", stype, s)
+    return gens
 end
-function build_full_hamiltonian(sites, deltaU, J)
-    ampo = AutoMPO()
-    L = div(length(sites), 2)
-
-   #= Inter-chain interactions
-    #for i in 1:2:(2L - 2)
-       # for j in 1:6
-       #     add!(ampo, 0.5 * J, "Ep$j", i, "Em$j", i+2)
-            add!(ampo, 0.5 * J, "Em$j", i, "Ep$j", i+2)
-        end
-        add!(ampo, J, "H1", i, "H1", i+2)
-        add!(ampo, J, "H2", i, "H2", i+2)
-        add!(ampo, J, "H3", i, "H3", i+2)
-    end
-=#
-   ## Intra-chain interactions
-    for i in 1:L
-        si = 2*i - 1
-        sj = 2*i
-        for j in 1:6
-            add!(ampo, 0.5 * J, "Ep$j", si, "Em$j", sj)
-            add!(ampo, 0.5 * J, "Em$j", si, "Ep$j", sj)
-        end
-        add!(ampo, J, "H1", si, "H1", sj)
-        add!(ampo, J, "H2", si, "H2", sj)
-        add!(ampo, J, "H3", si, "H3", sj)
-    end
-
-    # ΔU 
-    for i in 1:2L
-        add!(ampo, deltaU, "Sd", i)
-    end
-    return MPO(ampo, sites)
+function commutator_norm(A::ITensor, B::ITensor)
+  comm = commutator(A, B)
+  return norm(comm)
+end
+function check_all_commutators()
+  s = siteind("IdxSU4_6d", 1)
+  gens = generate_su4_generators(s)
+  for (nameA, A) in gens
+      for (nameB, B) in gens
+          if nameA != nameB
+              nrm = commutator_norm(A, B)
+              println("Commutator of $nameA and $nameB: norm = ", round(nrm, digits=6))
+          end
+      end
+  end
 end
 
+# Define the Hamiltonian for the ladder system
+function su4_ladder_hamiltonian(J::Real, deltaU::Real, N::Int)
+  ampo = AutoMPO()
 
-# Build the full Hamiltonian
-H = build_full_hamiltonian(sites, deltaU)
+  # Diagonal generators (Cartan elements)
+  diag_gens = ["H1", "H2", "H3"]
 
-# Create a random MPS initial state
-psi0 = randomMPS(sites)
+  # Off-diagonal generators: raising and lowering pairs
+  offdiag_pairs = [
+    ("Ep1", "Em1"),
+    ("Ep2", "Em2"),
+    ("Ep3", "Em3"),
+    ("Ep4", "Em4"),
+    ("Ep5", "Em5"),
+    ("Ep6", "Em6"),
+    ("Em1", "Ep1"),
+    ("Em2", "Ep2"),
+    ("Em3", "Ep3"),
+    ("Em4", "Ep4"),
+    ("Em5", "Ep5"),
+    ("Em6", "Ep6"),
+  ]
 
-# Set up DMRG sweeps
-sweeps = Sweeps(6)
-setmaxdim!(sweeps, 20, 50, 100, 200)
-setcutoff!(sweeps, 1E-10)
+  # Loop over each site
+  for i in 1:N
+    # Diagonal terms S_i^2
+    for gen in diag_gens
+      add!(ampo, J, gen, i, gen, i)
+    end
 
-# Perform DMRG calculation
-energy, psi = dmrg(H, psi0, sweeps)
+    # Off-diagonal terms S^{ab}_i S^{ba}_i
+    for (gen1, gen2) in offdiag_pairs
+      add!(ampo, J, gen1, i, gen2, i)
+    end
 
-# Output the result
-println("Ground state energy: ", energy)
+    # Interaction term (second part of the Hamiltonian)
+       add!(ampo, deltaU, "Sd", i, "Sd", i)
+      end
+  return MPO(ampo, sites)
+end 
+
+open("output_ladder.txt", "w") do file
+  deltaU_values = [-2.0, -1.5, -1.0, -0.5, 0.0, 0.5, 1.0, 1.5, 2.0]
+  for deltaU in deltaU_values
+      println(file, "Running for deltaU = ", deltaU)
+      H = su4_ladder_hamiltonian(J, deltaU, N)
+      sweeps = Sweeps(10)
+      maxdim!(sweeps, 10, 20, 100, 100, 200)
+      cutoff!(sweeps, 1e-15)
+      psi0 = randomMPS(sites)
+      energy, psi = dmrg(H, psi0, sweeps)
+      println(file, "Ground state energy = ", deltaU, ": ", energy)
+  end
+end
