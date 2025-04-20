@@ -1,9 +1,9 @@
 using ITensors, ITensorMPS
 using LinearAlgebra
-const Dim_site = 6  # Hilbert Dimension of each site
-const N = 4         # Number of rungs
-const deltaU = 0.5  # Interaction parameter
-const J = 1.0       # exchange energy parameter
+
+Dim_site = 6  # Hilbert Dimension of each site
+L = 2      # Number of sites (ladder length)
+J = 1.0       # exchange energy parameter
 
 # Define the operator space for each site
 function ITensors.space(::SiteType"IdxSU4_6d")
@@ -181,13 +181,13 @@ function check_all_commutators()
 end
 
 # Define the Hamiltonian for the ladder system
-function su4_ladder_hamiltonian(J::Real, deltaU::Real, N::Int)
+function su4_ladder_hamiltonian(J::Real, deltaU::Real, L::Int)
   ampo = AutoMPO()
 
   # Diagonal generators (Cartan elements)
   diag_gens = ["H1", "H2", "H3"]
 
-  # Off-diagonal generators: raising and lowering pairs
+  # Off-diagonal generator pairs
   offdiag_pairs = [
     ("Ep1", "Em1"),
     ("Ep2", "Em2"),
@@ -203,34 +203,40 @@ function su4_ladder_hamiltonian(J::Real, deltaU::Real, N::Int)
     ("Em6", "Ep6"),
   ]
 
-  # Loop over each site
-  for i in 1:N
-    # Diagonal terms S_i^2
+  # Nearest-neighbor interaction terms
+  for i in 1:(L - 1)
     for gen in diag_gens
-      add!(ampo, J, gen, i, gen, i)
+      add!(ampo, J, gen, i, gen, i+1)
     end
-
-    # Off-diagonal terms S^{ab}_i S^{ba}_i
     for (gen1, gen2) in offdiag_pairs
-      add!(ampo, J, gen1, i, gen2, i)
+      add!(ampo, J/2, gen1, i, gen2, i+1)
     end
-
-    # Interaction term (second part of the Hamiltonian)
-       add!(ampo, deltaU, "Sd", i, "Sd", i)
-      end
-  return MPO(ampo, sites)
-end 
-
-open("output_ladder.txt", "w") do file
-  deltaU_values = [-2.0, -1.5, -1.0, -0.5, 0.0, 0.5, 1.0, 1.5, 2.0]
-  for deltaU in deltaU_values
-      println(file, "Running for deltaU = ", deltaU)
-      H = su4_ladder_hamiltonian(J, deltaU, N)
-      sweeps = Sweeps(10)
-      maxdim!(sweeps, 10, 20, 100, 100, 200)
-      cutoff!(sweeps, 1e-15)
-      psi0 = randomMPS(sites)
-      energy, psi = dmrg(H, psi0, sweeps)
-      println(file, "Ground state energy = ", deltaU, ": ", energy)
   end
+
+  # Onsite term: deltaU * (Sd)^2
+  for i in 1:L
+    add!(ampo, deltaU, "Sd", i, "Sd", i)
+  end
+
+  return MPO(ampo, sites)
+end
+
+open("scandeltaU_dmrg.txt", "a") do file
+  println(file, "\n\n=======================")
+  println(file, "DMRG of SU(4) ladder Model")
+  println(file, "=======================")
+  println(file, "L = $L, J = $J")
+  println(file, "=======================")
+  deltaU_list = -2.4:0.2:2.4  # Range of deltaU values
+  deltaU_values = collect(deltaU_list)
+  for deltaU in deltaU_values
+      H = su4_ladder_hamiltonian(J, deltaU, L)  
+      sweeps = Sweeps(30) 
+      maxdim!(sweeps, 100, 200, 400, 600, 800)
+      cutoff!(sweeps, 1e-14)
+      psi0 = randomMPS(sites)  
+      energy, psi = dmrg(H, psi0, sweeps; outputlevel=2) 
+      println(file, "deltaU = $deltaU, Ground state energy = $energy")
+  end
+  println(file, " ============= DONE =============")
 end

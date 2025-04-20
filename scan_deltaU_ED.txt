@@ -1,0 +1,99 @@
+
+
+=======================
+Exact Diagonalization of SU(4) ladder Model
+=======================
+L = 4, J = 1.0
+=======================
+deltaU = -2.4, Ground state energy = -15.10004257068204 + 0.0im
+deltaU = -2.2, Ground state energy = -13.90004257068202 + 0.0im
+deltaU = -2.0, Ground state energy = -12.700042570682111 + 0.0im
+deltaU = -1.8, Ground state energy = -11.50004257068204 + 0.0im
+deltaU = -1.6, Ground state energy = -10.300042570682178 + 0.0im
+deltaU = -1.4, Ground state energy = -9.287606840770602 + 0.0im
+deltaU = -1.2, Ground state energy = -8.487606840770713 + 0.0im
+deltaU = -1.0, Ground state energy = -7.687606840770785 + 0.0im
+deltaU = -0.8, Ground state energy = -7.148707146361191 + 0.0im
+deltaU = -0.6, Ground state energy = -7.148707146361192 + 0.0im
+deltaU = -0.4, Ground state energy = -7.1487071463612715 + 0.0im
+deltaU = -0.2, Ground state energy = -7.148707146361193 + 0.0im
+deltaU = 0.0, Ground state energy = -7.148707146361178 + 0.0im
+deltaU = 0.2, Ground state energy = -7.148707146361248 + 0.0im
+deltaU = 0.4, Ground state energy = -7.14870714636125 + 0.0im
+deltaU = 0.6, Ground state energy = -7.148707146361233 + 0.0im
+deltaU = 0.8, Ground state energy = -7.148707146361169 + 0.0im
+deltaU = 1.0, Ground state energy = -7.68760684077065 + 0.0im
+deltaU = 1.2, Ground state energy = -8.487606840770647 + 0.0im
+deltaU = 1.4, Ground state energy = -9.287606840770636 + 0.0im
+deltaU = 1.6, Ground state energy = -10.300042570682045 + 0.0im
+deltaU = 1.8, Ground state energy = -11.500042570682155 + 0.0im
+deltaU = 2.0, Ground state energy = -12.700042570682111 + 0.0im
+deltaU = 2.2, Ground state energy = -13.900042570682007 + 0.0im
+deltaU = 2.4, Ground state energy = -15.10004257068198 + 0.0im
+ ============= DONE =============
+
+
+=======================
+Exact Diagonalization of SU(4) ladder Model
+=======================
+L = 3, J = 1.0
+=======================
+deltaU = -2.4, Ground state energy = -11.511111111111157 + 0.0im
+deltaU = -2.2, Ground state energy = -10.561474399014397 + 0.0im
+deltaU = -2.0, Ground state energy = -9.76147439901442 + 0.0im
+deltaU = -1.8, Ground state energy = -8.961474399014467 + 0.0im
+deltaU = -1.6, Ground state energy = -8.161474399014425 + 0.0im
+deltaU = -1.4, Ground state energy = -7.361474399014399 + 0.0im
+deltaU = -1.2, Ground state energy = -6.715442951815783 + 0.0im
+deltaU = -1.0, Ground state energy = -6.3154429518157915 + 0.0im
+deltaU = -0.8, Ground state energy = -5.915442951815842 + 0.0im
+deltaU = -0.6, Ground state energy = -5.515442951815831 + 0.0im
+deltaU = -0.4, Ground state energy = -5.115442951815796 + 0.0im
+deltaU = -0.2, Ground state energy = -4.715442951815786 + 0.0im
+deltaU = 0.0, Ground state energy = -4.31544295181576 + 0.0im
+deltaU = 0.2, Ground state energy = -4.715442951815773 + 0.0im
+deltaU = 0.4, Ground state energy = -5.115442951815792 + 0.0im
+deltaU = 0.6, Ground state energy = -5.515442951815826 + 0.0im
+deltaU = 0.8, Ground state energy = -5.915442951815795 + 0.0im
+deltaU = 1.0, Ground state energy = -6.315442951815786 + 0.0im
+deltaU = 1.2, Ground state energy = -6.71544295181577 + 0.0im
+deltaU = 1.4, Ground state energy = -7.361474399014435 + 0.0im
+deltaU = 1.6, Ground state energy = -8.161474399014457 + 0.0im
+deltaU = 1.8, Ground state energy = -8.961474399014401 + 0.0im
+deltaU = 2.0, Ground state energy = -9.761474399014451 + 0.0im
+deltaU = 2.2, Ground state energy = -10.561474399014397 + 0.0im
+deltaU = 2.4, Ground state energy = -11.511111111111155 + 0.0im
+ ============= DONE =============
+
+
+=======================
+Exact Diagonalization of SU(4) ladder Model
+=======================
+L = 2, J = 1.0
+=======================
+deltaU = -2.4, Ground state energy = -8.155555555555544 + 0.0im
+deltaU = -2.2, Ground state energy = -7.355555555555549 + 0.0im
+deltaU = -2.0, Ground state energy = -6.555555555555563 + 0.0im
+deltaU = -1.8, Ground state energy = -5.755555555555532 + 0.0im
+deltaU = -1.6, Ground state energy = -4.955555555555543 + 0.0im
+deltaU = -1.4, Ground state energy = -4.155555555555561 + 0.0im
+deltaU = -1.2, Ground state energy = -3.677777777777774 + 0.0im
+deltaU = -1.0, Ground state energy = -3.3894080090203818 + 0.0im
+deltaU = -0.8, Ground state energy = -3.3894080090203875 + 0.0im
+deltaU = -0.6, Ground state energy = -3.389408009020399 + 0.0im
+deltaU = -0.4, Ground state energy = -3.3894080090203897 + 0.0im
+deltaU = -0.2, Ground state energy = -3.3894080090203826 + 0.0im
+deltaU = 0.0, Ground state energy = -3.3894080090203804 + 0.0im
+deltaU = 0.2, Ground state energy = -3.3894080090203897 + 0.0im
+deltaU = 0.4, Ground state energy = -3.3894080090203804 + 0.0im
+deltaU = 0.6, Ground state energy = -3.389408009020389 + 0.0im
+deltaU = 0.8, Ground state energy = -3.389408009020378 + 0.0im
+deltaU = 1.0, Ground state energy = -3.389408009020385 + 0.0im
+deltaU = 1.2, Ground state energy = -3.677777777777779 + 0.0im
+deltaU = 1.4, Ground state energy = -4.155555555555552 + 0.0im
+deltaU = 1.6, Ground state energy = -4.955555555555562 + 0.0im
+deltaU = 1.8, Ground state energy = -5.755555555555556 + 0.0im
+deltaU = 2.0, Ground state energy = -6.555555555555562 + 0.0im
+deltaU = 2.2, Ground state energy = -7.3555555555555685 + 0.0im
+deltaU = 2.4, Ground state energy = -8.155555555555562 + 0.0im
+ ============= DONE =============
