@@ -2,8 +2,7 @@ using LinearAlgebra
 using SparseArrays
 using KrylovKit
 
-
-L = 2              # Number of sites (ladder length)
+L = 12           # Number of sites (ladder length)
 Dim_site = 6              # Local Hilbert space dimension (6*6)
 J = 1.0             # Coupling strength (J)
 
@@ -79,7 +78,6 @@ Ep = [
             0 0 0 0 0 0;
             0 0 0 0 0 0])
 ]
-
 Em = [sparse(Matrix(e')) for e in Ep]  # Convert adjoints to sparse matrices
 
 #one-site operators
@@ -129,12 +127,10 @@ function diagonalize(H, n=5)
     vals, _, _ = eigsolve(x -> H * x, dimH, n, :SR, tol=1e-6)
     return vals
 end
-H = build_hamiltonian(L, deltaU)
-vals = diagonalize(H, 5)
 
 # Print the results
 results = []
-open("scan_deltaU_ED.txt", "a") do file
+open("scan_deltaU_ED.txt", "w") do file
     println(file, "\n\n=======================")
     println(file, "Exact Diagonalization of SU(4) ladder Model")
     println(file, "=======================")
@@ -150,3 +146,36 @@ open("scan_deltaU_ED.txt", "a") do file
     end
     println(file, " ============= DONE =============")
 end
+
+# Read the results from the file and plot
+deltaUs = Float64[]
+energies = Float64[]
+open("scan_deltaU_ED.txt", "r") do file
+    seen_deltaUs = Set{Float64}()  # To track unique deltaU values
+    for line in eachline(file)
+        if occursin("deltaU", line)
+            match_result = match(r"deltaU\s*=\s*([-0-9.]+),\s*Ground state energy\s*=\s*([-0-9.]+)", line)
+            if match_result !== nothing
+                deltaU_val = parse(Float64, match_result.captures[1])
+                energy_val = parse(Float64, match_result.captures[2])
+                if !(deltaU_val in seen_deltaUs)  
+                    push!(deltaUs, deltaU_val)
+                    push!(energies, energy_val)
+                    push!(seen_deltaUs, deltaU_val)
+                end
+            end
+        end
+    end
+end
+plot(deltaUs, energies;
+     xlabel = "deltaU",
+     ylabel = "Ground State Energy",
+     title = "Ground State Energy vs deltaU(ED)",
+     lw = 2,
+     marker = :circle,
+     legend = false,
+     grid = true)
+
+# Save the plot, overwriting the existing file
+savefig("E0-deltaU(ED).png")
+println("Plot energy-deltaU.png")

@@ -3,97 +3,11 @@
 =======================
 DMRG of SU(4) ladder Model
 =======================
-L = 4, J = 1.0
+L = 20, J = 1.0
 =======================
-deltaU = -2.4, Ground state energy = -42.885235256246965
-deltaU = -2.2, Ground state energy = -39.69877782738571
-deltaU = -2.0, Ground state energy = -36.511949609116144
-deltaU = -1.8, Ground state energy = -33.33323673492754
-deltaU = -1.6, Ground state energy = -30.157831847156885
-deltaU = -1.4, Ground state energy = -26.987406789496806
-deltaU = -1.2, Ground state energy = -23.82757434571707
-deltaU = -1.0, Ground state energy = -20.68596217972979
-deltaU = -0.8, Ground state energy = -17.569296338858226
-deltaU = -0.6, Ground state energy = -14.500701955919507
-deltaU = -0.4, Ground state energy = -11.54098501967214
-deltaU = -0.2, Ground state energy = -8.892691001998772
-deltaU = 0.0, Ground state energy = -7.148707146361196
-deltaU = 0.2, Ground state energy = -6.418997144333084
-deltaU = 0.4, Ground state energy = -6.098337072459162
-deltaU = 0.6, Ground state energy = -5.925776534435932
-deltaU = 0.8, Ground state energy = -5.819176010577102
-deltaU = 1.0, Ground state energy = -5.7470701521444765
-deltaU = 1.2, Ground state energy = -5.695132846750293
-deltaU = 1.4, Ground state energy = -5.655970531455155
-deltaU = 1.6, Ground state energy = -5.625398091320948
-deltaU = 1.8, Ground state energy = -5.600874014865533
-deltaU = 2.0, Ground state energy = -5.5807675265973025
-deltaU = 2.2, Ground state energy = -5.563984914414131
-deltaU = 2.4, Ground state energy = -5.549765573526371
- ============= DONE =============
-
-
-=======================
-DMRG of SU(4) ladder Model
-=======================
-L = 3, J = 1.0
-=======================
-deltaU = -2.4, Ground state energy = -31.791744108074777
-deltaU = -2.2, Ground state energy = -29.400928220144287
-deltaU = -2.0, Ground state energy = -27.011903700722314
-deltaU = -1.8, Ground state energy = -24.625247260262256
-deltaU = -1.6, Ground state energy = -22.241810337389914
-deltaU = -1.4, Ground state energy = -19.86290241109157
-deltaU = -1.2, Ground state energy = -17.490640537852084
-deltaU = -1.0, Ground state energy = -15.128666343518997
-deltaU = -0.8, Ground state energy = -12.78375215895024
-deltaU = -0.6, Ground state energy = -10.469789313839183
-deltaU = -0.4, Ground state energy = -8.218755049446793
-deltaU = -0.2, Ground state energy = -6.11091168303848
-deltaU = 0.0, Ground state energy = -4.315442894551167
-deltaU = 0.2, Ground state energy = -3.9650158724165796
-deltaU = 0.4, Ground state energy = -3.811708199313796
-deltaU = 0.6, Ground state energy = -3.724412479316319
-deltaU = 0.8, Ground state energy = -3.6688645581653274
-deltaU = 1.0, Ground state energy = -3.6306288562775446
-deltaU = 1.2, Ground state energy = -3.6027762520011546
-deltaU = 1.4, Ground state energy = -3.5816117296095307
-deltaU = 1.6, Ground state energy = -3.5649973491867826
-deltaU = 1.8, Ground state energy = -3.5516144452646863
-deltaU = 2.0, Ground state energy = -3.540607100634503
-deltaU = 2.2, Ground state energy = -3.5313962108674315
-deltaU = 2.4, Ground state energy = -3.523576262087112
- ============= DONE =============
-
-
-=======================
-DMRG of SU(4) ladder Model
-=======================
-L = 2, J = 1.0
-=======================
-deltaU = -2.4, Ground state energy = -20.753185298955444
-deltaU = -2.2, Ground state energy = -19.16347338088601
-deltaU = -2.0, Ground state energy = -17.57589451021042
-deltaU = -1.8, Ground state energy = -15.991178718172858
-deltaU = -1.6, Ground state energy = -14.410428943294244
-deltaU = -1.4, Ground state energy = -12.835388405895227
-deltaU = -1.2, Ground state energy = -11.268965404720472
-deltaU = -1.0, Ground state energy = -9.716359136261925
-deltaU = -0.8, Ground state energy = -8.18769854031142
-deltaU = -0.6, Ground state energy = -6.7048746626773985
-deltaU = -0.4, Ground state energy = -5.3203043326808395
-deltaU = -0.2, Ground state energy = -4.157678499858535
-deltaU = 0.0, Ground state energy = -3.3894080090203853
-deltaU = 0.2, Ground state energy = -2.995765569016217
-deltaU = 0.4, Ground state energy = -2.8001235910585724
-deltaU = 0.6, Ground state energy = -2.691832409552601
-deltaU = 0.8, Ground state energy = -2.624945899847229
-deltaU = 1.0, Ground state energy = -2.5800351056475104
-deltaU = 1.2, Ground state energy = -2.547965510486764
-deltaU = 1.4, Ground state energy = -2.523983671957601
-deltaU = 1.6, Ground state energy = -2.5054012940830175
-deltaU = 1.8, Ground state energy = -2.4905932252857936
-deltaU = 2.0, Ground state energy = -2.4785228053411426
-deltaU = 2.2, Ground state energy = -2.468499112043019
-deltaU = 2.4, Ground state energy = -2.460044607217894
+deltaU = -2.0, Ground state energy = -59.69871965548145
+deltaU = -1.0, Ground state energy = -41.44131096387586
+deltaU = 0.0, Ground state energy = -37.7688937199107
+deltaU = 1.0, Ground state energy = -41.3821580353322
+deltaU = 2.0, Ground state energy = -59.65031190374473
  ============= DONE =============
